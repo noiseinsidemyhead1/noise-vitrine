@@ -17,7 +17,7 @@ const socials = [
 export default function Home() {
   return (
     <div className="flex flex-1 flex-col items-center bg-background text-foreground">
-      <main className="flex w-full max-w-xl flex-1 flex-col items-center justify-center gap-6 px-6 py-24 text-center">
+      <main className="flex w-full max-w-xl flex-1 flex-col items-center justify-center gap-4 px-6 py-10 text-center sm:gap-6 sm:py-24">
         <h1 className="text-4xl font-normal tracking-tight text-black">Max</h1>
 
         <Image
@@ -26,12 +26,12 @@ export default function Home() {
           width={298}
           height={180}
           unoptimized
-          className="rounded"
+          className="h-auto w-44 rounded sm:w-[298px]"
         />
 
         <p className="text-base">i like to build stuff</p>
 
-        <section className="mt-8 flex w-full flex-col items-center gap-3">
+        <section className="mt-6 flex w-full flex-col items-center gap-3 sm:mt-8">
           {projects.map((project) => (
             <Link
               key={project.url}
@@ -46,7 +46,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="flex w-full max-w-xl items-center justify-center gap-6 px-6 py-8 text-sm">
+      <footer className="flex w-full max-w-xl items-center justify-center gap-6 px-6 py-4 text-sm sm:py-8">
         {socials.map((social) => (
           <Link
             key={social.name}
