@@ -1,3 +1,28 @@
+Hello, I'm Max, student at EFREI based in France
+
+my discord : ([url]: https://discordapp.com/users/239916257917272068)
+my linkedin : ([url]: www.linkedin.com/in/maxsreis)
+my github : ([url]: https://github.com/LightningMax)
+
+## Design
+
+### color palette :
+
+#b2b2b2
+#000000
+
+### structure :
+
+h1: Max
+image: osage chan gif
+p: i like to build stuff
+
+### projects (only project name and a clickable and hoovable link)
+
+Efrei international : ([url:] https://efrei-int-website-v2.vercel.app)
+
+footer with personal icons (only platform name, for ex: discord) no icons and should have a hoover effect
+
 <!-- BEGIN:nextjs-agent-rules -->
 
 # This is NOT the Next.js you know
