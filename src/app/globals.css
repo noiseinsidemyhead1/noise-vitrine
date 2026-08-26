@@ -3,6 +3,11 @@
 :root {
   --background: #b2b2b2;
   --foreground: #000000;
+  --accent: #0f172a;
+  --bg-gradient: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(0,0,0,0.02));
+  --glass-bg: rgba(255,255,255,0.06);
+  --glass-border: rgba(255,255,255,0.12);
+  --glass-shadow: 0 10px 30px rgba(2,6,23,0.18);
 }
 
 @theme inline {
@@ -16,4 +21,54 @@ body {
   color: var(--foreground);
   font-family: var(--font-jost), Arial, Helvetica, sans-serif;
   font-weight: 300;
+}
+
+/* Increase base size to avoid "minuscule" appearance */
+html {
+  font-size: 20px;
+}
+
+/* Visual improvements: glassmorphism and stronger typography */
+
+/* Hero card (glassmorphism) */
+.hero-card {
+  /* blend with background: no visible card */
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+/* Strong hero typography */
+.hero-heading {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--foreground);
+}
+
+/* Text links styling */
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  color: var(--foreground);
+  text-decoration: underline;
+  text-decoration-color: #000000;
+  text-underline-offset: 0.18em;
+  transition: opacity 0.15s ease;
+}
+
+.text-link:hover {
+  opacity: 0.72;
+}
+
+/* Slight overlay to add depth without changing base color */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: var(--bg-gradient);
+  mix-blend-mode: multiply;
 }

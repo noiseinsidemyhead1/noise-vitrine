@@ -9,8 +9,8 @@ const jost = Jost({
 });
 
 export const metadata: Metadata = {
-  title: "Max",
-  description: "i like to build stuff",
+  title: "Noise",
+  description: "married to calm & linux kernel enjoyer",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
