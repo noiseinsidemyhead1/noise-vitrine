@@ -26,7 +26,7 @@ export default function Home() {
                 width={140}
                 height={140}
                 priority
-                className="rounded-full border-2 border-black/45"
+                className="rounded-full border-2 border-[#7c66ad]/30"
               />
 
               <div className="text-center md:text-left">

@@ -6,10 +6,10 @@ import { Float, Html, OrbitControls, useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 import { clone as cloneSkinned } from "three/examples/jsm/utils/SkeletonUtils.js";
 
-/* Palette du portfolio (cf. globals.css) */
-const BACKGROUND = new THREE.Color("#b2b2b2");
+/* Teinte pastel du portfolio (cf. --accent dans globals.css) */
+const BACKGROUND = new THREE.Color("#a996d9");
 
-/** Dose de teinte vers le gris de fond appliquée aux matériaux. */
+/** Dose de teinte vers l'accent pastel appliquée aux matériaux. */
 const TINT = 0.16;
 
 type ModelConfig = {
@@ -202,7 +202,7 @@ function Model({ config }: { config: ModelConfig }) {
 function Loader() {
   return (
     <Html center>
-      <span className="select-none text-xs tracking-widest text-black/50">
+      <span className="select-none text-xs tracking-widest text-[#372c4d]/50">
         ···
       </span>
     </Html>
@@ -242,14 +242,16 @@ function Stage({ config, className }: { config: ModelConfig; className: string }
         className="pointer-events-auto h-full w-full cursor-grab touch-none active:cursor-grabbing"
         camera={{ position: [0, 0, 4.2], fov: 30 }}
         gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
-        dpr={[1, 1.75]}
+        // Capé à 1.75 le rendu paraissait flou sur les écrans Retina/HiDPI
+        // affichés en 2560x1440 (devicePixelRatio 2) : on matche leur DPR réel.
+        dpr={[1, 2]}
       >
         {/* Éclairage doux et diffus. Note : les matériaux `unlit` de ces deux
             .glb l'ignorent — il ne sert qu'aux éventuelles parties PBR. */}
         <ambientLight intensity={0.85} />
-        <hemisphereLight args={["#ffffff", "#7d7d7d", 0.65]} />
+        <hemisphereLight args={["#ffffff", "#c9b8e8", 0.65]} />
         <directionalLight position={[3, 4, 5]} intensity={0.9} />
-        <directionalLight position={[-4, 2, -3]} intensity={0.4} color="#b2b2b2" />
+        <directionalLight position={[-4, 2, -3]} intensity={0.4} color="#cbb9ec" />
 
         <Suspense fallback={<Loader />}>
           <Float speed={0.45} rotationIntensity={0.1} floatIntensity={0.12}>
@@ -308,11 +310,11 @@ export default function ModelViewer() {
       {/* Flancs gauche / droite, centrés verticalement. */}
       <Stage
         config={MIKU}
-        className="left-0 top-1/2 h-[380px] w-[380px] -translate-y-1/2 lg:left-6 lg:h-[460px] lg:w-[460px]"
+        className="left-0 top-1/2 h-[380px] w-[380px] -translate-y-1/2 lg:left-6 lg:h-[460px] lg:w-[460px] 2xl:left-12 2xl:h-[620px] 2xl:w-[620px]"
       />
       <Stage
         config={MIMIKYU}
-        className="right-0 top-1/2 h-[380px] w-[380px] -translate-y-1/2 lg:right-6 lg:h-[460px] lg:w-[460px]"
+        className="right-0 top-1/2 h-[380px] w-[380px] -translate-y-1/2 lg:right-6 lg:h-[460px] lg:w-[460px] 2xl:right-12 2xl:h-[620px] 2xl:w-[620px]"
       />
     </>
   );

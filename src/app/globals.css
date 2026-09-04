@@ -1,13 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --background: #b2b2b2;
-  --foreground: #000000;
-  --accent: #0f172a;
-  --bg-gradient: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(0,0,0,0.02));
-  --glass-bg: rgba(255,255,255,0.06);
-  --glass-border: rgba(255,255,255,0.12);
-  --glass-shadow: 0 10px 30px rgba(2,6,23,0.18);
+  --background: #f1ecfa;
+  --foreground: #372c4d;
+  --accent: #a996d9;
+  --accent-strong: #7c66ad;
+  --bg-gradient:
+    radial-gradient(circle at 15% 20%, rgba(196, 181, 253, 0.4), transparent 55%),
+    radial-gradient(circle at 85% 15%, rgba(216, 200, 245, 0.4), transparent 50%),
+    radial-gradient(circle at 50% 100%, rgba(180, 165, 224, 0.3), transparent 60%);
 }
 
 @theme inline {
@@ -28,17 +29,10 @@ html {
   font-size: 20px;
 }
 
-/* Visual improvements: glassmorphism and stronger typography */
-
-/* Hero card (glassmorphism) */
+/* No panel at all — any bounded fill/blur reads as a box no matter how it's
+   faded out. The text sits directly on the pastel background/glow instead. */
 .hero-card {
-  /* blend with background: no visible card */
   background: transparent;
-  border: none;
-  border-radius: 0;
-  padding: 0;
-  box-shadow: none;
-  backdrop-filter: none;
 }
 
 /* Strong hero typography */
@@ -52,9 +46,9 @@ html {
 .text-link {
   display: inline-flex;
   align-items: center;
-  color: var(--foreground);
+  color: var(--accent-strong);
   text-decoration: underline;
-  text-decoration-color: #000000;
+  text-decoration-color: var(--accent);
   text-underline-offset: 0.18em;
   transition: opacity 0.15s ease;
 }
@@ -63,12 +57,12 @@ html {
   opacity: 0.72;
 }
 
-/* Slight overlay to add depth without changing base color */
+/* Soft lavender washes over the pastel base — no blend-mode needed, they're
+   already light enough to sit as a gentle gradient mesh. */
 body::after {
   content: '';
   position: fixed;
   inset: 0;
   pointer-events: none;
   background: var(--bg-gradient);
-  mix-blend-mode: multiply;
 }
